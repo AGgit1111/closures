@@ -40,3 +40,32 @@ let counter = makeCounter();
 console.log('counter: ');
 console.log(counter());
 console.log(counter());
+
+// Module Pattern Example:
+const calculatorModule = (function () {
+    let privateCounter = 0;
+
+    function changeBy(val) {
+        privateCounter += val;
+    }
+
+    return {
+        increment: function () {
+            changeBy(5);
+        },
+        decrement: function () {
+            changeBy(-5);
+        },
+        value: function () {
+            return privateCounter;
+        }
+    };
+})();
+
+console.log('calculatorModule: ');
+console.log(calculatorModule.value()); // 0
+calculatorModule.increment();
+calculatorModule.increment();
+console.log(calculatorModule.value()); // 10
+calculatorModule.decrement();
+console.log(calculatorModule.value()); // 5
