@@ -26,10 +26,13 @@ console.log('myFunction: ');
 myFunction();
 
 // Another example:
+/* The essence of a closure is that it preserves the state of its outer scope. Each call to 'counter()'
+   does not reset 'count' to 0. Instead, 'count' retains its value between calls, thanks to the closure. 
+   This is why you see an increasing number each time 'counter()' is called. */
 function makeCounter() {
     let count = 0;
     return function () {
-        return count++;
+        return (count++);
     };
 }
 
