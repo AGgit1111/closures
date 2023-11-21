@@ -22,4 +22,18 @@ function outerFunction() {
 }
 
 const myFunction = outerFunction();
+console.log('myFunction: ');
 myFunction();
+
+// Another example:
+function makeCounter() {
+    let count = 0;
+    return function () {
+        return count++;
+    };
+}
+
+let counter = makeCounter();
+console.log('counter: ');
+console.log(counter());
+console.log(counter());
